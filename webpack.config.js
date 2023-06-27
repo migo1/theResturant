@@ -3,11 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.js",
-  devtool: "inline-source-map",
-  output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist"),
+  entry: {
+    index: "./src/index.js",
   },
   devServer: {
     static: "./dist",
@@ -17,6 +14,10 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
+  output: {
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist"),
+  },
   optimization: {
     runtimeChunk: "single",
   },
@@ -25,18 +26,6 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: "fonts/",
-            },
-          },
-        ],
       },
     ],
   },
