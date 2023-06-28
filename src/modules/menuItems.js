@@ -1,3 +1,5 @@
+import showCommentModal from "./showComment.js";
+
 const menuItem = (data) => {
   const menuSection = document.getElementById("menu");
   const menuCardContainer = document.createElement("div");
@@ -40,6 +42,8 @@ const menuItem = (data) => {
   const commentButton = document.createElement("button");
   commentButton.classList.add("comment");
   commentButton.textContent = "Comment";
+
+  commentButton.addEventListener("click", showCommentModal(data, menuSection, commentButton));
 
   menuCardContent.appendChild(heartSpan);
   menuCardContent.appendChild(commentButton);
