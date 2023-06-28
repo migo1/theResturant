@@ -1,4 +1,5 @@
 import showCommentModal from "./showComment.js";
+import getLikes from "./getLikes.js";
 
 const menuItem = (data) => {
   const menuSection = document.getElementById("menu");
@@ -34,7 +35,9 @@ const menuItem = (data) => {
   heartIcon.classList.add("fa-solid", "fa-heart");
   countSpan.classList.add("count");
 
-  countSpan.textContent = 0;
+  getLikes(data.idMeal).then((likes) => {
+    countSpan.textContent = likes;
+  });
 
   heartSpan.appendChild(heartIcon);
   heartSpan.appendChild(countSpan);
