@@ -1,5 +1,6 @@
 import showCommentModal from "./showComment.js";
 import getLikes from "./getLikes.js";
+import postLikes from "./postLikes.js";
 
 const menuItem = (data) => {
   const menuSection = document.getElementById("menu");
@@ -30,6 +31,7 @@ const menuItem = (data) => {
     setTimeout(() => {
       heartSpan.classList.remove("clicked");
     }, 500);
+    postLikes(data.idMeal, countSpan);
   });
   const heartIcon = document.createElement("i");
   heartIcon.classList.add("fa-solid", "fa-heart");
