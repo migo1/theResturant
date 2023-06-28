@@ -1,3 +1,71 @@
-body {
-  background-color: bisque;
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: "Lato", sans-serif;
+}
+
+section {
+  display: none;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.top-logo {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  gap: 7rem;
+}
+
+.nav-item {
+  font-family: "Lato", sans-serif;
+}
+
+.nav-item a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  background-image: linear-gradient(
+    to top right,
+    black,
+    orangered,
+    purple,
+    darkblue,
+    black,
+    blue
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 1px 1px 4px darkmagenta;
+  letter-spacing: 2px;
+}
+
+.nav-item a:hover {
+  color: darkblue;
+  text-shadow: 1px 1px 4px black;
+}
+
+.menu {
+  padding: 2%;
+  padding-right: 2%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-around;
 }
