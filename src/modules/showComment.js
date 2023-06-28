@@ -1,3 +1,5 @@
+import fetchComments from "./fetchComments.js";
+
 const showCommentModal = (data, menuSection, commentButton) => {
   const dialog = document.createElement("dialog");
   dialog.classList.add("comment-modal");
@@ -27,7 +29,8 @@ const showCommentModal = (data, menuSection, commentButton) => {
   const textContainer = document.createElement("div");
   textContainer.classList.add("comment-modal-content");
 
-  const comments = [];
+  const populateComments = async () => {
+  const comments = await fetchComments(data.idMeal);
   textContainer.innerHTML = "";
   comments.forEach((com) => {
     const userIcon = document.createElement("i");
@@ -44,6 +47,7 @@ const showCommentModal = (data, menuSection, commentButton) => {
     textContainer.appendChild(userContainer);
     textContainer.appendChild(commentParagraph);
   });
+  };
 
   content.appendChild(textContainer);
   body.appendChild(content);
@@ -81,6 +85,14 @@ const showCommentModal = (data, menuSection, commentButton) => {
 
   commentButton.addEventListener("click", () => {
     dialog.showModal();
+    fetchComments(data.idMeal)
+      .then((comments) => {
+        console.log("loaded comments:", comments);
+        populateComments(comments);
+      })
+      .catch((error) => {
+        console.error("Error fetching comments:", error);
+      });
   });
   closeButton.addEventListener("click", () => {
     dialog.close();
