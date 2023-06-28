@@ -40,15 +40,16 @@ header {
   font-size: 1.8rem;
   font-weight: bold;
   text-decoration: none;
-  background-image: linear-gradient(
-    to top right,
-    black,
-    orangered,
-    purple,
-    darkblue,
-    black,
-    blue
-  );
+  background-image:
+    linear-gradient(
+      to top right,
+      black,
+      orangered,
+      purple,
+      darkblue,
+      black,
+      blue
+    );
   -webkit-background-clip: text;
   color: transparent;
   text-shadow: 1px 1px 4px darkmagenta;
