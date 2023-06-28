@@ -30,23 +30,23 @@ const showCommentModal = (data, menuSection, commentButton) => {
   textContainer.classList.add("comment-modal-content");
 
   const populateComments = async () => {
-  const comments = await fetchComments(data.idMeal);
-  textContainer.innerHTML = "";
-  comments.forEach((com) => {
-    const userIcon = document.createElement("i");
-    userIcon.classList.add("fa-solid", "fa-user");
-    const nameParagraph = document.createElement("p");
-    nameParagraph.classList.add("comment-modal-name");
-    nameParagraph.textContent = com.username;
-    const userContainer = document.createElement("div");
-    userContainer.classList.add("comment-modal-user");
-    userContainer.append(userIcon, nameParagraph);
-    const commentParagraph = document.createElement("p");
-    commentParagraph.classList.add("comment-modal-comment");
-    commentParagraph.textContent = com.comment;
-    textContainer.appendChild(userContainer);
-    textContainer.appendChild(commentParagraph);
-  });
+    const comments = await fetchComments(data.idMeal);
+    textContainer.innerHTML = "";
+    comments.forEach((com) => {
+      const userIcon = document.createElement("i");
+      userIcon.classList.add("fa-solid", "fa-user");
+      const nameParagraph = document.createElement("p");
+      nameParagraph.classList.add("comment-modal-name");
+      nameParagraph.textContent = com.username;
+      const userContainer = document.createElement("div");
+      userContainer.classList.add("comment-modal-user");
+      userContainer.append(userIcon, nameParagraph);
+      const commentParagraph = document.createElement("p");
+      commentParagraph.classList.add("comment-modal-comment");
+      commentParagraph.textContent = com.comment;
+      textContainer.appendChild(userContainer);
+      textContainer.appendChild(commentParagraph);
+    });
   };
 
   content.appendChild(textContainer);
