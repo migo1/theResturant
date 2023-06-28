@@ -17,6 +17,7 @@
         "no-param-reassign": "off",
         "eol-last": "off",
         "quotes": "off",
+        "no-console": "off",
         "import/extensions": [
             1,
             {
