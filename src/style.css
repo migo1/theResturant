@@ -1,11 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400;1,700;1,900&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   list-style-type: none;
   text-decoration: none;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
+}
+
+section {
+  display: none;
 }
 
 header {
@@ -29,14 +33,22 @@ header {
 }
 
 .nav-item {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
- .nav-item a {
+.nav-item a {
   font-size: 1.8rem;
   font-weight: bold;
   text-decoration: none;
-  background-image: linear-gradient(to top right , black, orangered, purple, darkblue, black, blue);
+  background-image: linear-gradient(
+    to top right,
+    black,
+    orangered,
+    purple,
+    darkblue,
+    black,
+    blue
+  );
   -webkit-background-clip: text;
   color: transparent;
   text-shadow: 1px 1px 4px darkmagenta;
@@ -46,10 +58,7 @@ header {
 .nav-item a:hover {
   color: darkblue;
   text-shadow: 1px 1px 4px black;
-  }
-
-
-
+}
 
 .menu {
   padding: 2%;
