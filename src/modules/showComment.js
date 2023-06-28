@@ -1,3 +1,5 @@
+import fetchComments from "./fetchComments.js";
+
 const showCommentModal = (data, menuSection, commentButton) => {
   const dialog = document.createElement("dialog");
   dialog.classList.add("comment-modal");
@@ -27,23 +29,25 @@ const showCommentModal = (data, menuSection, commentButton) => {
   const textContainer = document.createElement("div");
   textContainer.classList.add("comment-modal-content");
 
-  const comments = [];
-  textContainer.innerHTML = "";
-  comments.forEach((com) => {
-    const userIcon = document.createElement("i");
-    userIcon.classList.add("fa-solid", "fa-user");
-    const nameParagraph = document.createElement("p");
-    nameParagraph.classList.add("comment-modal-name");
-    nameParagraph.textContent = com.username;
-    const userContainer = document.createElement("div");
-    userContainer.classList.add("comment-modal-user");
-    userContainer.append(userIcon, nameParagraph);
-    const commentParagraph = document.createElement("p");
-    commentParagraph.classList.add("comment-modal-comment");
-    commentParagraph.textContent = com.comment;
-    textContainer.appendChild(userContainer);
-    textContainer.appendChild(commentParagraph);
-  });
+  const populateComments = async () => {
+    const comments = await fetchComments(data.idMeal);
+    textContainer.innerHTML = "";
+    comments.forEach((com) => {
+      const userIcon = document.createElement("i");
+      userIcon.classList.add("fa-solid", "fa-user");
+      const nameParagraph = document.createElement("p");
+      nameParagraph.classList.add("comment-modal-name");
+      nameParagraph.textContent = com.username;
+      const userContainer = document.createElement("div");
+      userContainer.classList.add("comment-modal-user");
+      userContainer.append(userIcon, nameParagraph);
+      const commentParagraph = document.createElement("p");
+      commentParagraph.classList.add("comment-modal-comment");
+      commentParagraph.textContent = com.comment;
+      textContainer.appendChild(userContainer);
+      textContainer.appendChild(commentParagraph);
+    });
+  };
 
   content.appendChild(textContainer);
   body.appendChild(content);
@@ -81,6 +85,14 @@ const showCommentModal = (data, menuSection, commentButton) => {
 
   commentButton.addEventListener("click", () => {
     dialog.showModal();
+    fetchComments(data.idMeal)
+      .then((comments) => {
+        console.log("loaded comments:", comments);
+        populateComments(comments);
+      })
+      .catch((error) => {
+        console.error("Error fetching comments:", error);
+      });
   });
   closeButton.addEventListener("click", () => {
     dialog.close();
