@@ -57,9 +57,9 @@ This is a website that displays the menu of a resturant with a like and comment 
 
 <!-- LIVE DEMO -->
 ## 🚀 Live Demo <a name="live-demo"></a>
-<!-- 
-- [Live Demo Link](https://htetwaiyan7191.github.io/meal-gallery/dist/)
-- [Video Walkthrough](https://drive.google.com/file/d/1XWaaf755kJ83iqra7Q4fOSdCJTTmrC_z/view?usp=sharing) -->
+
+- [Live Demo Link](https://migo1.github.io/theResturant/dist/)
+<!-- - [Video Walkthrough](https://drive.google.com/file/d/1XWaaf755kJ83iqra7Q4fOSdCJTTmrC_z/view?usp=sharing)  -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
