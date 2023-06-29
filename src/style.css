@@ -303,3 +303,11 @@ header {
     transform: scale(1);
   }
 }
+
+span.comment-count {
+  margin-left: 10px;
+  color: black;
+  padding: 2px;
+  background-color: white;
+  border-radius: 50%;
+}
