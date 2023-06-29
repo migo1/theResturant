@@ -1,6 +1,7 @@
 import fetchComments from "./fetchComments.js";
+import countComments from "./commentCounter.js";
 
-const showCommentModal = (data, menuSection, commentButton) => {
+const showCommentModal = (data, menuSection, commentButton, commentCount) => {
   const dialog = document.createElement("dialog");
   dialog.classList.add("comment-modal");
   const header = document.createElement("div");
@@ -107,6 +108,8 @@ const showCommentModal = (data, menuSection, commentButton) => {
       form.reset();
       const updatedComments = await fetchComments(data.idMeal);
       populateComments(updatedComments);
+      const count = await countComments(data.idMeal);
+      commentCount.textContent = count;
     } catch (error) {
       console.error("Error submitting comment:", error);
     }
