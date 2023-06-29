@@ -25,7 +25,7 @@
 
 # 📖 [the_resturant] <a name="about-project"></a>
 
-This is a website that displays the menu of a resturant with a like and comment button. The website allows users to like multiple items and also leave a comment on items
+This is a website that displays the menu items of a resturant that entails pictures, description, with a like and comment button. The website allows users to like multiple items and also leave a comment on items
 
 
 ## 🛠 Built With <a name="built-with"></a>
@@ -59,7 +59,7 @@ This is a website that displays the menu of a resturant with a like and comment 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo Link](https://migo1.github.io/theResturant/dist/)
-<!-- - [Video Walkthrough](https://drive.google.com/file/d/1XWaaf755kJ83iqra7Q4fOSdCJTTmrC_z/view?usp=sharing)  -->
+- [Video Walkthrough](https://drive.google.com/file/d/1TCRjaRkDike4J5S0MZLcY59_HiucczKQ/view?usp=sharing) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
