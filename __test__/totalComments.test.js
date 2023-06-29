@@ -7,7 +7,7 @@ test("commentCounter updates the text content of commentCount with the correct l
     { item_id: 2, username: "user2", comment: "comment2" },
     { item_id: 3, username: "user3", comment: "comment3" },
   ];
-  const expectedLength = data.length;
+  const expectedLength = `comments (${data.length})`;
   totalComments(commentCount, data.length);
   expect(commentCount.textContent).toBe(expectedLength);
 });

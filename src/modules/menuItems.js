@@ -1,8 +1,6 @@
 import showCommentModal from "./showComment.js";
 import getLikes from "./getLikes.js";
 import postLikes from "./postLikes.js";
-import countComments from "./commentCounter.js";
-import totalComments from "./totalComments.js";
 
 const menuItem = (data) => {
   const menuSection = document.getElementById("menu");
@@ -49,15 +47,9 @@ const menuItem = (data) => {
   const commentButton = document.createElement("button");
   commentButton.classList.add("comment");
   commentButton.textContent = "Comment";
-  const commentCount = document.createElement("span");
-  commentCount.classList.add("comment-count");
-  const updateCommentCount = async () => {
-    const count = await countComments(data.idMeal);
-    totalComments(commentCount, count);
-  };
-  commentButton.addEventListener("click", showCommentModal(data, menuSection, commentButton, commentCount));
 
-  commentButton.appendChild(commentCount);
+  commentButton.addEventListener("click", showCommentModal(data, menuSection, commentButton));
+
   menuCardContent.appendChild(heartSpan);
   menuCardContent.appendChild(commentButton);
 
@@ -66,7 +58,6 @@ const menuItem = (data) => {
   menuCardContainer.appendChild(menuCardContent);
 
   menuSection.appendChild(menuCardContainer);
-  updateCommentCount();
 };
 
 export default menuItem;

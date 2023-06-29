@@ -8,9 +8,11 @@
   font-family: "Lato", sans-serif;
 }
 
-html,
 body {
-  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 section {
@@ -21,7 +23,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2.5rem;
+  background-color: #f5f5f5;
 }
 
 .top-logo {
@@ -45,20 +48,7 @@ header {
   font-size: 1.8rem;
   font-weight: bold;
   text-decoration: none;
-  background-image:
-    linear-gradient(
-      to top right,
-      black,
-      orangered,
-      purple,
-      darkblue,
-      black,
-      blue
-    );
-  -webkit-background-clip: text;
-  color: transparent;
-  text-shadow: 1px 1px 4px darkmagenta;
-  letter-spacing: 2px;
+  color: #d49a13;
 }
 
 .nav-item a:hover {
@@ -128,21 +118,39 @@ header {
   align-items: center;
 }
 
-.fa-user {
-  font-size: 20px;
-  margin-right: 2%;
+.content-area {
+  border: none;
   padding: 1%;
-  background-color: #ccc;
-  border-radius: 50%;
+  font-size: 20px;
+  background-color: #d49a13;
+  color: #fff;
+}
+
+.comment-modal-content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3%;
+}
+
+.comment-date {
+  font-style: italic;
+}
+
+.user-comment-container {
+  display: flex;
+  margin-bottom: 2%;
 }
 
 .comment-modal-name {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .comment-modal-comment {
-  padding-left: 7%;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .comment-modal-form {
@@ -186,11 +194,10 @@ header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  position: fixed;
-  bottom: 0;
   width: 100%;
   z-index: 5;
   height: 50px;
+  margin-top: auto;
 }
 
 .footer-logo {
@@ -251,6 +258,7 @@ header {
   margin-top: 3%;
   margin-bottom: 5%;
   border-bottom: gray 2px solid;
+  font-size: 20px;
 }
 
 .menu-card-content {
@@ -310,4 +318,11 @@ span.comment-count {
   padding: 2px;
   background-color: white;
   border-radius: 50%;
+}
+
+.comment-area-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3%;
 }
