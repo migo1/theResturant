@@ -27,6 +27,10 @@ const showCommentModal = (data, menuSection, commentButton, commentCount) => {
   image.alt = data.idMeal;
   imageContainer.appendChild(image);
   content.appendChild(imageContainer);
+  const area = document.createElement("button");
+  area.classList.add("content-area");
+  area.textContent = `area: ${data.strArea}`;
+  content.appendChild(area);
   const textContainer = document.createElement("div");
   textContainer.classList.add("comment-modal-content");
 
@@ -34,19 +38,19 @@ const showCommentModal = (data, menuSection, commentButton, commentCount) => {
     const comments = await fetchComments(data.idMeal);
     textContainer.innerHTML = "";
     comments.forEach((com) => {
-      const userIcon = document.createElement("i");
-      userIcon.classList.add("fa-solid", "fa-user");
+      const userCommentContainer = document.createElement("div");
+      userCommentContainer.classList.add("user-comment-container");
+      const date = document.createElement("p");
+      date.classList.add("comment-date");
+      date.textContent = `${com.creation_date} - `;
       const nameParagraph = document.createElement("p");
       nameParagraph.classList.add("comment-modal-name");
-      nameParagraph.textContent = com.username;
-      const userContainer = document.createElement("div");
-      userContainer.classList.add("comment-modal-user");
-      userContainer.append(userIcon, nameParagraph);
+      nameParagraph.textContent = `${com.username} : `;
       const commentParagraph = document.createElement("p");
       commentParagraph.classList.add("comment-modal-comment");
       commentParagraph.textContent = com.comment;
-      textContainer.appendChild(userContainer);
-      textContainer.appendChild(commentParagraph);
+      userCommentContainer.append(date, nameParagraph, commentParagraph);
+      textContainer.appendChild(userCommentContainer);
     });
   };
 
