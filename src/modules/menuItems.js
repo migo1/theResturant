@@ -2,6 +2,7 @@ import showCommentModal from "./showComment.js";
 import getLikes from "./getLikes.js";
 import postLikes from "./postLikes.js";
 import countComments from "./commentCounter.js";
+import totalComments from "./totalComments.js";
 
 const menuItem = (data) => {
   const menuSection = document.getElementById("menu");
@@ -52,7 +53,7 @@ const menuItem = (data) => {
   commentCount.classList.add("comment-count");
   const updateCommentCount = async () => {
     const count = await countComments(data.idMeal);
-    commentCount.textContent = count;
+    totalComments(commentCount, count);
   };
   commentButton.addEventListener("click", showCommentModal(data, menuSection, commentButton, commentCount));
 
