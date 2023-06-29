@@ -6,7 +6,7 @@ const mealsCounter = async () => {
     }
 
     const data = await response.json();
-    return data.meals.length;
+    return data.meals;
   } catch (error) {
     console.error("Error counting comments:", error);
     return 0;

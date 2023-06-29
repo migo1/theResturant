@@ -5,6 +5,7 @@ import setupAppId from './modules/setupAppId.js';
 import fetchMenuData from './modules/fetchMenuData.js';
 import menuItem from './modules/menuItems.js';
 import mealsCounter from './modules/mealsCounter.js';
+import totalMeals from './modules/totalMeals.js';
 
 setupAppId();
 navigation();
@@ -41,7 +42,7 @@ const mealsCounterElement = document.querySelector(".meals-counter");
 
 const displayCounter = async () => {
   const counter = await mealsCounter();
-  mealsCounterElement.textContent = counter;
+  totalMeals(mealsCounterElement, counter);
 };
 
 displayCounter();
