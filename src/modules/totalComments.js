@@ -1,4 +1,4 @@
 const totalComments = (element, data) => {
-    element.textContent = data;
-  };
-  export default totalComments;
+  element.textContent = data;
+};
+export default totalComments;

@@ -1,4 +1,5 @@
 import totalComments from "../src/modules/totalComments.js";
+
 test("commentCounter updates the text content of commentCount with the correct length", () => {
   const commentCount = { textContent: "" };
   const data = [
