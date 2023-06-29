@@ -8,9 +8,12 @@
   font-family: "Lato", sans-serif;
 }
 
-html,
+
 body {
-  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 section {
@@ -193,11 +196,10 @@ header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  position: fixed;
-  bottom: 0;
   width: 100%;
   z-index: 5;
   height: 50px;
+  margin-top: auto;
 }
 
 .footer-logo {
