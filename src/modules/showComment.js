@@ -39,7 +39,6 @@ const showCommentModal = (data, menuSection, commentButton) => {
     const count = await countComments(data.idMeal);
     totalComments(areaCount, count);
   };
-  // areaCount.textContent = 11;
   areaContainer.append(area, areaCount);
   content.appendChild(areaContainer);
   const textContainer = document.createElement("div");
@@ -133,7 +132,6 @@ const showCommentModal = (data, menuSection, commentButton) => {
     dialog.showModal();
     fetchComments(data.idMeal)
       .then((comments) => {
-        console.log("loaded comments:", comments);
         populateComments(comments);
       })
       .catch((error) => {
