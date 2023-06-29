@@ -1,7 +1,8 @@
 import fetchComments from "./fetchComments.js";
 import countComments from "./commentCounter.js";
+import totalComments from "./totalComments.js";
 
-const showCommentModal = (data, menuSection, commentButton, commentCount) => {
+const showCommentModal = (data, menuSection, commentButton) => {
   const dialog = document.createElement("dialog");
   dialog.classList.add("comment-modal");
   const header = document.createElement("div");
@@ -27,10 +28,20 @@ const showCommentModal = (data, menuSection, commentButton, commentCount) => {
   image.alt = data.idMeal;
   imageContainer.appendChild(image);
   content.appendChild(imageContainer);
+  const areaContainer = document.createElement("div");
+  areaContainer.classList.add("comment-area-container");
   const area = document.createElement("button");
   area.classList.add("content-area");
   area.textContent = `area: ${data.strArea}`;
-  content.appendChild(area);
+  const areaCount = document.createElement("p");
+  areaCount.classList.add("area-count");
+  const updateCommentCount = async () => {
+    const count = await countComments(data.idMeal);
+    totalComments(areaCount, count);
+  };
+  // areaCount.textContent = 11;
+  areaContainer.append(area, areaCount);
+  content.appendChild(areaContainer);
   const textContainer = document.createElement("div");
   textContainer.classList.add("comment-modal-content");
 
@@ -87,7 +98,7 @@ const showCommentModal = (data, menuSection, commentButton, commentCount) => {
   dialog.appendChild(body);
   dialog.appendChild(footer);
   menuSection.appendChild(dialog);
-
+  updateCommentCount();
   const submitComment = dialog.querySelector(".comment-modal-form");
   submitComment.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -113,7 +124,7 @@ const showCommentModal = (data, menuSection, commentButton, commentCount) => {
       const updatedComments = await fetchComments(data.idMeal);
       populateComments(updatedComments);
       const count = await countComments(data.idMeal);
-      commentCount.textContent = count;
+      areaCount.textContent = `comments (${count})`;
     } catch (error) {
       console.error("Error submitting comment:", error);
     }
