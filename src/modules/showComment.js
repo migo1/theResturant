@@ -83,6 +83,34 @@ const showCommentModal = (data, menuSection, commentButton) => {
   dialog.appendChild(footer);
   menuSection.appendChild(dialog);
 
+  const submitComment = dialog.querySelector(".comment-modal-form");
+  submitComment.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const commentData = {
+      item_id: data.idMeal,
+      username: event.target.username.value,
+      comment: event.target.comment.value,
+    };
+    try {
+      const appId = localStorage.getItem("app_id");
+      const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`;
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(commentData),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to submit comment");
+      }
+      form.reset();
+      const updatedComments = await fetchComments(data.idMeal);
+      populateComments(updatedComments);
+    } catch (error) {
+      console.error("Error submitting comment:", error);
+    }
+  });
   commentButton.addEventListener("click", () => {
     dialog.showModal();
     fetchComments(data.idMeal)
