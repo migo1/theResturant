@@ -76,7 +76,6 @@ header {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  flex-wrap: wrap;
   margin: 4rem 3rem;
 }
 
@@ -204,25 +203,24 @@ header {
 
 .footer {
   background-color: #E7CEA6;
-  padding: 10px 2%;
+  padding: 12px 2%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
   z-index: 5;
-  height: 50px;
   margin-top: auto;
 }
 
 .footer-logo {
   height: 60px;
+  margin-left: -8rem;
 }
 
 .footer-creators {
   background-color: #E7CEA6;
   color: #090580; 
   box-shadow: 2px 3px 10px darkred;
-  padding: 1rem 1rem; 
+  padding: .5rem; 
   border-radius: 5px;
   color: darkred;
   text-shadow: 2px 2px 4px darkred;
@@ -256,17 +254,16 @@ header {
   font-size: 24px;
 }
 
-.menu-card {
+ .menu-card {
   background-color: #fff;
   display: flex;
   flex-direction: column;
   border: none;
   box-shadow: .2rem .3rem 10px peru;
-  padding: 2rem;
   border-radius: .5rem;
+  padding: 2rem;
   cursor: pointer;
   transition: transform 0.4s ease-out;
-  height: 80%;
 }
 
 .menu-card:hover {
@@ -356,16 +353,15 @@ span.comment-count {
 
 @media only screen and (max-width: 23.44em) {
   header {
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-  }
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: black;
+  padding: 6px .8%;
+}
 
   .navigation {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
+    justify-content: center;
+   gap: .4rem;
   }
 
   .nav-item {
@@ -380,11 +376,14 @@ span.comment-count {
 
   .menu {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: .5rem;
-  }
+          grid-template-columns: repeat(2, 1fr);
+    gap: .4rem;
+    margin: 1.4rem .7rem;
+ }
 
-  .top-logo{
-    display: none;
-  }
+ .menu-card {
+  height: 40%;
+  padding: 1rem;
+}
+
 }
